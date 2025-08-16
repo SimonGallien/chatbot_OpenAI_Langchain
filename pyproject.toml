@@ -6,8 +6,11 @@ authors = [
     {name = "SimonGallien",email = "simongallien@orange.fr"}
 ]
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.12, <4.0"
 dependencies = [
+    "openai (>=1.99.9,<2.0.0)",
+    "langchain (>=0.3.27,<0.4.0)",
+    "langchain-openai (>=0.3.30,<0.4.0)"
 ]
 
 
