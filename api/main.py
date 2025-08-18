@@ -1,4 +1,4 @@
-from fastapi import FastAPI, UploadFile, File
+from fastapi import FastAPI, UploadFile, File, Form
 from fastapi.responses import StreamingResponse
 from chain import summarize
 from langchain_core.messages import HumanMessage
@@ -70,7 +70,7 @@ async def generate_stream(input_message, config, chain):
 
 
 @app.post("/update")
-def update(request: str):
+async def update(request: str = Form(...)):
     config = {"configurable": {"thread_id": "4"}}
     input_message = HumanMessage(content=request)
     return StreamingResponse(
